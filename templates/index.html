@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking Ticket Data</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map { height: 400px; }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Parking Ticket Data</h1>
+    
+    <form id="dateForm">
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate" name="startDate" required>
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate" name="endDate" required>
+        <button type="submit">Get Tickets</button>
+    </form>
+
+    <div id="aggregatedData"></div>
+    <div id="map"></div>
+    <div id="ticketData"></div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        document.getElementById("dateForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var startDate = document.getElementById("startDate").value;
+            var endDate = document.getElementById("endDate").value;
+        
+            var map = L.map('map').setView([34.0522, -118.2437], 10);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '© OpenStreetMap'
+            }).addTo(map);
+        
+            var markers = new L.LayerGroup().addTo(map);
+        
+            fetch(`/api/tickets?start_date=${startDate}&end_date=${endDate}`)
+                .then(response => response.json())
+                .then(result => {
+                    const { tickets, total_fine_amount } = result;
+        
+                    document.getElementById("aggregatedData").innerHTML = `<p>Total Fine Amount: ${total_fine_amount}</p>`;
+                    markers.clearLayers();
+        
+                    tickets.forEach(ticket => { 
+                        if (ticket.loc_lat && ticket.loc_long) {
+                            L.marker([ticket.loc_lat, ticket.loc_long]).bindPopup(`<strong>Ticket Number:</strong> ${ticket.ticket_number}<br/><strong>Location:</strong> ${ticket.location}`).addTo(markers);
+                        }
+                    });
+        
+                    var tableHtml = '<table><tr><th>Ticket Number</th><th>Issue Date</th><th>Issue Time</th><th>Make</th><th>Color</th><th>Body Style</th><th>State Plate</th><th>Location</th><th>Violation Code</th><th>Fine Amount</th></tr>';
+                    tickets.forEach(ticket => {
+                        tableHtml += `<tr><td>${ticket.ticket_number}</td><td>${ticket.issue_date}</td><td>${ticket.issue_time}</td><td>${ticket.make}</td><td>${ticket.color}</td><td>${ticket.body_style}</td><td>${ticket.rp_state_plate}</td><td>${ticket.location}</td><td>${ticket.violation_code}</td><td>${ticket.fine_amount}</td></tr>`;
+                    });
+                    tableHtml += '</table>';
+                    document.getElementById("ticketData").innerHTML = tableHtml;
+        
+                    // Add download button
+                    var downloadBtn = document.createElement('button');
+                    downloadBtn.innerText = 'Download';
+                    downloadBtn.onclick = function() {
+                        // Create CSV content
+                        var csvContent = "data:text/csv;charset=utf-8,";
+                        csvContent += "Ticket Number,Issue Date,Issue Time,Make,Color,Body Style,State Plate,Location,Violation Code,Fine Amount\n";
+                        
+                        tickets.forEach(ticket => {
+                            csvContent += `${ticket.ticket_number},${ticket.issue_date},${ticket.issue_time},${ticket.make},${ticket.color},${ticket.body_style},${ticket.rp_state_plate},${ticket.location},${ticket.violation_code},${ticket.fine_amount}\n`;
+                        });
+        
+                        // Create download link
+                        var encodedUri = encodeURI(csvContent);
+                        var link = document.createElement("a");
+                        link.setAttribute("href", encodedUri);
+                        link.setAttribute("download", "parking_tickets.csv");
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link); // Clean up after download
+                    };
+                    document.getElementById("ticketData").appendChild(downloadBtn);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById("map").innerHTML = ''; 
+                    document.getElementById("ticketData").innerHTML = `<p>Error loading data.</p>`;
+                });
+        });
+        
+    </script>
+    
+</body>
+</html>
