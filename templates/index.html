@@ -55,7 +55,7 @@
                 .then(result => {
                     const { tickets, total_fine_amount } = result;
         
-                    document.getElementById("aggregatedData").innerHTML = `<p>Total Fine Amount: ${total_fine_amount}</p>`;
+                    document.getElementById("aggregatedData").innerHTML = `<p>Total Count: ${total_fine_amount}</p>`;
                     markers.clearLayers();
         
                     tickets.forEach(ticket => { 

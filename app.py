@@ -34,7 +34,8 @@ def get_tickets():
             summary_data = [{'make': make, 'color': color, 'body_style': body_style, 'count': count} 
                             for (make, color, body_style), count in summary.items()]
 
-            total_fine_amount = sum(int(ticket['fine_amount']) for ticket in data if ticket.get('fine_amount', '').isdigit())
+            total_row_count = sum(1 for ticket in data if ticket.get('fine_amount', '').isdigit())
+
             for ticket in data:
                 if 'loc_lat' not in ticket or 'loc_long' not in ticket:
                     ticket['loc_lat'] = '34.0522'  # Default latitude if missing
@@ -43,7 +44,7 @@ def get_tickets():
             # Filter data based on date range
             filtered_data = [ticket for ticket in data if start_date <= ticket['issue_date'][:10] <= end_date]
 
-            return jsonify({'tickets': filtered_data, 'summary': summary_data, 'total_fine_amount': total_fine_amount})
+            return jsonify({'tickets': filtered_data, 'summary': summary_data, 'total_fine_amount': total_row_count})
         else:
             return jsonify({'error': f'Failed to fetch data, status code {response.status_code}'}), response.status_code
     except requests.RequestException as e:
