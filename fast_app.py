@@ -17,7 +17,7 @@ class TicketSummary(BaseModel):
 
 @app.get("/")
 async def read_root(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    return templates.TemplateResponse("vue_map.html", {"request": request})
 
 @app.get("/api/tickets", response_model=dict)
 async def get_tickets(start_date: str, end_date: str):
