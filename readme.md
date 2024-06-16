@@ -1,5 +1,34 @@
 # Parking Ticket Data Exploration
 
+## Description of Data
+
+| Column Name            | Description             | DataType           |
+|------------------------|-------------------------|--------------------|
+| `ticket_number`        | Ticket number           | Text               |
+| `issue_date`           | Issue date              | Floating Timestamp |
+| `issue_time`           | Issue time              | Number             |
+| `meter_id`             | Meter ID                | Text               |
+| `marked_time`          | Marked time             | Text               |
+| `rp_state_plate`       | State plate registered  | Text               |
+| `plate_expiry_date`    | Plate expiry date       | Text               |
+| `vin`                  | Vehicle Identification Number | Text        |
+| `make`                 | Vehicle make            | Text               |
+| `body_style`           | Body style              | Text               |
+| `color`                | Color                   | Text               |
+| `location`             | Location                | Text               |
+| `route`                | Route                   | Text               |
+| `agency`               | Agency                  | Number             |
+| `violation_code`       | Violation code          | Text               |
+| `violation_description`| Violation description   | Text               |
+| `fine_amount`          | Fine amount             | Number             |
+| `agency_desc`          | Agency description      | Text               |
+| `color_desc`           | Color description       | Text               |
+| `body_style_desc`      | Body style description  | Text               |
+| `loc_lat`              | Latitude                | Number             |
+| `loc_long`             | Longitude               | Number             |
+| `geolocation`          | Geolocation             | Point              |
+
+
 ## Project Overview
 This project explores the parking ticket data provided by the [ City of Los Angeles API, powered by Socrata](https://data.lacity.org/). The goal is to demonstrate ETL with various DB, how to retrieve, process, and serve this data using Python web frameworks: Flask and FastAPI. This comparison focuses on understanding the performance, ease of use, and feature sets provided by different databases and frameworks.
 
