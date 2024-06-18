@@ -38,10 +38,10 @@ def get_tickets():
 
             for ticket in data:
                 if 'loc_lat' not in ticket or 'loc_long' not in ticket:
-                    ticket['loc_lat'] = '34.0522'  # Default latitude if missing
-                    ticket['loc_long'] = '-118.2437'  # Default longitude if missing
+                    ticket['loc_lat'] = '34.0522'  # Default latitude
+                    ticket['loc_long'] = '-118.2437'  # Default longitude
 
-            # Filter data based on date range
+            # Filter data based on date range, get datetime
             filtered_data = [ticket for ticket in data if start_date <= ticket['issue_date'][:10] <= end_date]
 
             return jsonify({'tickets': filtered_data, 'summary': summary_data, 'total_fine_amount': total_row_count})
