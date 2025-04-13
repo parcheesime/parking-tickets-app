@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: int_ticket_metrics
+    description: "Intermediate model that adds metrics such as cost per character in violation descriptions."
+    columns:
+      - name: ticket_number
+        description: "Unique ticket number assigned to each parking violation."
+        tests:
+          - not_null
+          - unique
+
+      - name: fine_amount
+        description: "Dollar amount charged for the parking violation."
+
+      - name: cost_per_char_violation
+        description: "Computed metric dividing fine by the length of the violation description."

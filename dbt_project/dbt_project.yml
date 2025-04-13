@@ -1,0 +1,17 @@
+name: dbt_parking_tickets
+version: '1.0'
+config-version: 2
+
+profile: dbt_parking_tickets
+
+model-paths: ["models"]
+seed-paths: ["data"]
+
+models:
+  dbt_parking_tickets:
+    staging:
+      +materialized: view
+    intermediate:
+      +materialized: view
+    marts:
+      +materialized: table

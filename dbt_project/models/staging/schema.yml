@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: stg_parking_tickets
+    description: "Cleaned and renamed fields from raw parking ticket data"
+    columns:
+      - name: ticket_number
+        description: "Unique ticket number"
+        tests:
+          - not_null
+          - unique
+      - name: issue_date
+        description: "Date ticket was issued"
+      - name: fine_amount
+        description: "Dollar amount of the ticket fine"
