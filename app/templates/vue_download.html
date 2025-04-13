@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking Ticket Data</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <style>
+        #map { height: 400px; }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div id="vue-app">
+        <h1>Parking Ticket Data</h1>
+        
+        <form id="dateForm" v-on:submit.prevent="fetchTickets">
+            <label for="startDate">Start Date:</label>
+            <input type="date" id="startDate" v-model="startDate" required>
+            <label for="endDate">End Date:</label>
+            <input type="date" id="endDate" v-model="endDate" required>
+            <button type="submit">Get Tickets</button>
+        </form>
+
+        <div id="aggregatedData">{{ aggregatedData }}</div>
+        <div id="map"></div>
+        <div id="ticketData" v-html="ticketData"></div>
+
+        <!-- Download CSV Button -->
+        <button type="button" v-if="tickets.length > 0" v-on:click="downloadCSV">Download CSV</button>
+    </div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+    var app = new Vue({
+        el: '#vue-app',
+        data: {
+            startDate: '',
+            endDate: '',
+            aggregatedData: '',
+            ticketData: '',
+            error: '',
+            tickets: [] // Added to track tickets data for download
+        },
+        methods: {
+            fetchTickets() {
+                const url = `/api/tickets?start_date=${this.startDate}&end_date=${this.endDate}`;
+                fetch(url)
+                    .then(response => response.json())
+                    .then(result => {
+                        const { tickets, total_fine_amount } = result;
+                        this.tickets = tickets; // Store tickets data
+                        this.aggregatedData = `Total Count: ${total_fine_amount}`;
+                        this.updateMap(tickets);
+                        this.updateTable(tickets);
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        this.error = 'Error loading data.';
+                        document.getElementById("map").innerHTML = '';
+                        this.ticketData = `<p>Error loading data.</p>`;
+                    });
+            },
+            updateMap(tickets) {
+                var map = L.map('map').setView([34.0522, -118.2437], 10);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 19,
+                    attribution: '© OpenStreetMap'
+                }).addTo(map);
+                var markers = new L.LayerGroup().addTo(map);
+                tickets.forEach(ticket => {
+                    if (ticket.loc_lat && ticket.loc_long) {
+                        L.marker([ticket.loc_lat, ticket.loc_long]).bindPopup(`<strong>Ticket Number:</strong> ${ticket.ticket_number}<br/><strong>Location:</strong> ${ticket.location}`).addTo(markers);
+                    }
+                });
+            },
+            updateTable(tickets) {
+                var tableHtml = '<table><tr><th>Ticket Number</th><th>Issue Date</th><th>Issue Time</th><th>Make</th><th>Color</th><th>Body Style</th><th>State Plate</th><th>Location</th><th>Violation Code</th><th>Fine Amount</th></tr>';
+                tickets.forEach(ticket => {
+                    tableHtml += `<tr><td>${ticket.ticket_number}</td><td>${ticket.issue_date}</td><td>${ticket.issue_time}</td><td>${ticket.make}</td><td>${ticket.color}</td><td>${ticket.body_style}</td><td>${ticket.rp_state_plate}</td><td>${ticket.location}</td><td>${ticket.violation_code}</td><td>${ticket.fine_amount}</td></tr>`;
+                });
+                tableHtml += '</table>';
+                this.ticketData = tableHtml;
+            },
+            downloadCSV() {
+                const csvData = this.convertToCSV(this.tickets);
+                const blob = new Blob([csvData], { type: 'text/csv;charset=utf-8;' });
+                const link = document.createElement('a');
+                if (link.download !== undefined) {
+                    const url = URL.createObjectURL(blob);
+                    link.setAttribute('href', url);
+                    link.setAttribute('download', `tickets_${this.startDate}_to_${this.endDate}.csv`);
+                    link.style.visibility = 'hidden';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                }
+            },
+            convertToCSV(tickets) {
+                const header = Object.keys(tickets[0]).join(',');
+                const rows = tickets.map(ticket => Object.values(ticket).join(',')).join('\n');
+                return `${header}\n${rows}`;
+            }
+        }
+    });
+    </script>
+</body>
+</html>

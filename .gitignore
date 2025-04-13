@@ -1,2 +1,5 @@
 /env
 config.py
+# dbt build artifacts
+dbt_project/target/
+dbt_project/parking_tickets.duckdb

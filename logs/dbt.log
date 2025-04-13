@@ -1,0 +1,160 @@
+[0m14:48:57.272333 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f9d2ec56740>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f9d2fc75450>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f9d2fc753f0>]}
+
+
+============================== 14:48:57.274308 | c10c553b-24f1-4877-9c81-4191a5c85af3 ==============================
+[0m14:48:57.274308 [info ] [MainThread]: Running with dbt=1.9.4
+[0m14:48:57.274733 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'profiles_dir': '/home/aletia/.dbt', 'log_path': 'logs', 'version_check': 'True', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'log_format': 'default', 'static_parser': 'True', 'invocation_command': 'dbt seed', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m14:48:57.275069 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /home/aletia/wsl_code/parking-tickets/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m14:48:57.275663 [debug] [MainThread]: Resource report: {"command_name": "seed", "command_success": false, "command_wall_clock_time": 0.050138175, "process_in_blocks": "296", "process_kernel_time": 0.050253, "process_mem_max_rss": "86116", "process_out_blocks": "8", "process_user_time": 0.844253}
+[0m14:48:57.276093 [debug] [MainThread]: Command `dbt seed` failed at 14:48:57.276014 after 0.05 seconds
+[0m14:48:57.276352 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f9d2ec56740>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f9d2fc75b10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f9d2fc75450>]}
+[0m14:48:57.276616 [debug] [MainThread]: Flushing usage events
+[0m14:48:57.685009 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m16:22:44.368986 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f70e3fd6770>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f70e31e14e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f70e31e1480>]}
+
+
+============================== 16:22:44.373064 | f383cc4d-a32c-4fc8-b9cd-bdae13aeee4e ==============================
+[0m16:22:44.373064 [info ] [MainThread]: Running with dbt=1.9.4
+[0m16:22:44.373527 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/home/aletia/.dbt', 'version_check': 'True', 'warn_error': 'None', 'log_path': 'logs', 'fail_fast': 'False', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt seed --full-refresh', 'static_parser': 'True', 'log_format': 'default', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m16:22:44.373880 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /home/aletia/wsl_code/parking-tickets/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m16:22:44.375023 [debug] [MainThread]: Resource report: {"command_name": "seed", "command_success": false, "command_wall_clock_time": 0.05921088, "process_in_blocks": "42344", "process_kernel_time": 0.070713, "process_mem_max_rss": "85456", "process_out_blocks": "16", "process_user_time": 0.919273}
+[0m16:22:44.375508 [debug] [MainThread]: Command `dbt seed` failed at 16:22:44.375422 after 0.06 seconds
+[0m16:22:44.375816 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f70e3fd6770>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f70e31e1ba0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f70e31e14e0>]}
+[0m16:22:44.376118 [debug] [MainThread]: Flushing usage events
+[0m16:22:44.839101 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m16:22:50.442458 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f562815e710>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f5629141480>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f5629141420>]}
+
+
+============================== 16:22:50.444324 | af582317-1617-4162-8787-0a44125c61e7 ==============================
+[0m16:22:50.444324 [info ] [MainThread]: Running with dbt=1.9.4
+[0m16:22:50.444761 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'version_check': 'True', 'log_path': 'logs', 'debug': 'False', 'profiles_dir': '/home/aletia/.dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'static_parser': 'True', 'invocation_command': 'dbt run', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m16:22:50.445066 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /home/aletia/wsl_code/parking-tickets/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m16:22:50.445693 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 0.049178693, "process_in_blocks": "0", "process_kernel_time": 0.049984, "process_mem_max_rss": "85932", "process_out_blocks": "0", "process_user_time": 0.809743}
+[0m16:22:50.446074 [debug] [MainThread]: Command `dbt run` failed at 16:22:50.445975 after 0.05 seconds
+[0m16:22:50.446322 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f562815e710>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f5629141b40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f5629141480>]}
+[0m16:22:50.446578 [debug] [MainThread]: Flushing usage events
+[0m16:22:50.846525 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m18:30:15.721561 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1127b8a6e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1128b6d3f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1128b6d390>]}
+
+
+============================== 18:30:15.726190 | 225faa8f-9dc8-425d-b09e-1f42cc4829fa ==============================
+[0m18:30:15.726190 [info ] [MainThread]: Running with dbt=1.9.4
+[0m18:30:15.726650 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'fail_fast': 'False', 'log_path': 'logs', 'profiles_dir': '/home/aletia/.dbt', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'invocation_command': 'dbt run', 'log_format': 'default', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m18:30:15.726993 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /home/aletia/wsl_code/parking-tickets/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m18:30:15.728965 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 0.05395513, "process_in_blocks": "42312", "process_kernel_time": 0.087759, "process_mem_max_rss": "85792", "process_out_blocks": "16", "process_user_time": 0.887346}
+[0m18:30:15.729406 [debug] [MainThread]: Command `dbt run` failed at 18:30:15.729328 after 0.05 seconds
+[0m18:30:15.729706 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1127b8a6e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1128b6dab0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f1128b6d3f0>]}
+[0m18:30:15.730021 [debug] [MainThread]: Flushing usage events
+[0m18:30:16.134765 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m18:30:25.704642 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4f05d6a770>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4f06d514e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4f06d51480>]}
+
+
+============================== 18:30:25.706683 | d0ae7d86-e752-4fa7-be88-64c42a64ad97 ==============================
+[0m18:30:25.706683 [info ] [MainThread]: Running with dbt=1.9.4
+[0m18:30:25.707162 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'version_check': 'True', 'log_path': 'logs', 'profiles_dir': '/home/aletia/.dbt', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'static_parser': 'True', 'invocation_command': 'dbt seed --full-refresh', 'introspect': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m18:30:25.707519 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /home/aletia/wsl_code/parking-tickets/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m18:30:25.708126 [debug] [MainThread]: Resource report: {"command_name": "seed", "command_success": false, "command_wall_clock_time": 0.05337504, "process_in_blocks": "0", "process_kernel_time": 0.059624, "process_mem_max_rss": "85912", "process_out_blocks": "0", "process_user_time": 0.814868}
+[0m18:30:25.708633 [debug] [MainThread]: Command `dbt seed` failed at 18:30:25.708464 after 0.05 seconds
+[0m18:30:25.708922 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4f05d6a770>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4f06d51ba0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f4f06d514e0>]}
+[0m18:30:25.709198 [debug] [MainThread]: Flushing usage events
+[0m18:30:26.102742 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m21:38:01.565701 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f72c5d6e770>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f72c6d554e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f72c6d55480>]}
+
+
+============================== 21:38:01.569494 | 489bfb60-fc2b-4718-a3cc-c9bdf8721a2f ==============================
+[0m21:38:01.569494 [info ] [MainThread]: Running with dbt=1.9.4
+[0m21:38:01.569932 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/home/aletia/.dbt', 'debug': 'False', 'warn_error': 'None', 'log_path': 'logs', 'fail_fast': 'False', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt seed --full-refresh', 'log_format': 'default', 'introspect': 'True', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m21:38:01.570295 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /home/aletia/wsl_code/parking-tickets/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m21:38:01.571455 [debug] [MainThread]: Resource report: {"command_name": "seed", "command_success": false, "command_wall_clock_time": 0.056707554, "process_in_blocks": "34560", "process_kernel_time": 0.06056, "process_mem_max_rss": "86104", "process_out_blocks": "8", "process_user_time": 0.928599}
+[0m21:38:01.571889 [debug] [MainThread]: Command `dbt seed` failed at 21:38:01.571810 after 0.06 seconds
+[0m21:38:01.572201 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f72c5d6e770>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f72c6d55ba0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f72c6d554e0>]}
+[0m21:38:01.572494 [debug] [MainThread]: Flushing usage events
+[0m21:38:01.984525 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m21:38:13.265198 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f32780d6740>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3277115480>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3277115420>]}
+
+
+============================== 21:38:13.267388 | 4bebd1b4-53d6-446c-9c94-0ee7e927c067 ==============================
+[0m21:38:13.267388 [info ] [MainThread]: Running with dbt=1.9.4
+[0m21:38:13.267825 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'profiles_dir': '/home/aletia/.dbt', 'log_path': 'logs', 'debug': 'False', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'static_parser': 'True', 'invocation_command': 'dbt run', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m21:38:13.268180 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /home/aletia/wsl_code/parking-tickets/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m21:38:13.268848 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 0.052883122, "process_in_blocks": "0", "process_kernel_time": 0.059966, "process_mem_max_rss": "85940", "process_out_blocks": "8", "process_user_time": 0.899501}
+[0m21:38:13.269258 [debug] [MainThread]: Command `dbt run` failed at 21:38:13.269179 after 0.05 seconds
+[0m21:38:13.269535 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f32780d6740>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3277115b40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f3277115480>]}
+[0m21:38:13.269811 [debug] [MainThread]: Flushing usage events
+[0m21:38:13.649928 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m21:38:27.947057 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd8f8a5e6b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd8f9a3d510>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd8f9a3d4b0>]}
+
+
+============================== 21:38:27.948996 | 11e71531-27f7-4aff-ba29-7b7c7bb2d432 ==============================
+[0m21:38:27.948996 [info ] [MainThread]: Running with dbt=1.9.4
+[0m21:38:27.949464 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/home/aletia/.dbt', 'fail_fast': 'False', 'version_check': 'True', 'log_path': 'logs', 'warn_error': 'None', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'invocation_command': 'dbt docs generate', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m21:38:27.949786 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /home/aletia/wsl_code/parking-tickets/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m21:38:27.950368 [debug] [MainThread]: Resource report: {"command_name": "generate", "command_success": false, "command_wall_clock_time": 0.05310178, "process_in_blocks": "0", "process_kernel_time": 0.020008, "process_mem_max_rss": "85804", "process_out_blocks": "0", "process_user_time": 0.900361}
+[0m21:38:27.950787 [debug] [MainThread]: Command `dbt docs generate` failed at 21:38:27.950715 after 0.05 seconds
+[0m21:38:27.951026 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd8f8a5e6b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd8f9a3dbd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd8f9a3d510>]}
+[0m21:38:27.951280 [debug] [MainThread]: Flushing usage events
+[0m21:38:28.335263 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m21:38:39.099996 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f06738d26e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f06748ed570>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f06748ed510>]}
+
+
+============================== 21:38:39.101826 | 4e8da73f-8fa3-441a-b734-0fa2428061d4 ==============================
+[0m21:38:39.101826 [info ] [MainThread]: Running with dbt=1.9.4
+[0m21:38:39.102270 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'fail_fast': 'False', 'log_path': 'logs', 'profiles_dir': '/home/aletia/.dbt', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'log_format': 'default', 'static_parser': 'True', 'introspect': 'True', 'invocation_command': 'dbt test', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m21:38:39.102583 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /home/aletia/wsl_code/parking-tickets/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m21:38:39.103140 [debug] [MainThread]: Resource report: {"command_name": "test", "command_success": false, "command_wall_clock_time": 0.049610324, "process_in_blocks": "0", "process_kernel_time": 0.029916, "process_mem_max_rss": "85788", "process_out_blocks": "16", "process_user_time": 0.837656}
+[0m21:38:39.103496 [debug] [MainThread]: Command `dbt test` failed at 21:38:39.103429 after 0.05 seconds
+[0m21:38:39.103748 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f06738d26e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f06748edc30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f06748ed570>]}
+[0m21:38:39.103982 [debug] [MainThread]: Flushing usage events
+[0m21:38:39.505507 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m21:38:58.633669 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd7378367a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd7388554b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd738855450>]}
+
+
+============================== 21:38:58.635617 | bc13b9fc-4fc1-4d3f-aace-d66cac88d5db ==============================
+[0m21:38:58.635617 [info ] [MainThread]: Running with dbt=1.9.4
+[0m21:38:58.636078 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/home/aletia/.dbt', 'fail_fast': 'False', 'debug': 'False', 'log_path': 'logs', 'warn_error': 'None', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'log_format': 'default', 'introspect': 'True', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'invocation_command': 'dbt docs serve --port 8080', 'send_anonymous_usage_stats': 'True'}
+[0m21:38:58.636388 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /home/aletia/wsl_code/parking-tickets/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m21:38:58.636976 [debug] [MainThread]: Resource report: {"command_name": "serve", "command_success": false, "command_wall_clock_time": 0.05088483, "process_in_blocks": "0", "process_kernel_time": 0.020083, "process_mem_max_rss": "86152", "process_out_blocks": "8", "process_user_time": 0.86358}
+[0m21:38:58.637371 [debug] [MainThread]: Command `dbt docs serve` failed at 21:38:58.637307 after 0.05 seconds
+[0m21:38:58.637606 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd7378367a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd738855b70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd7388554b0>]}
+[0m21:38:58.637878 [debug] [MainThread]: Flushing usage events
+[0m21:38:59.425357 [debug] [MainThread]: An error was encountered while trying to flush usage events
